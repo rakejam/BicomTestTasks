@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>    
+            var users = 
+            [
+                { ID:"1", Name:"John", email:"john@johnmail.com"}, 
+                { ID:"2", Name:"Jim", email:"jim@johnmail.com"}, 
+                { ID:"3", Name:"Tim", email:"tim@johnmail.com"}, 
+                { ID:"4", Name:"Finn", email:"finn@johnmail.com"}
+            ];
+
+            var x = document.createElement("TABLE");
+            x.setAttribute("id", "table");
+            x.setAttribute("class", "table");
+            document.body.appendChild(x);
+
+            var y = document.createElement("TR");
+            y.setAttribute("id", "row");
+            document.getElementById("table").appendChild(y);
+
+            var z = document.createElement("TH");
+            var t = document.createTextNode("ID");
+            z.appendChild(t);
+            document.getElementById("row").appendChild(z);
+
+            var z = document.createElement("TH");
+            var t = document.createTextNode("Name");
+            z.appendChild(t);
+            document.getElementById("row").appendChild(z);
+
+            var z = document.createElement("TH");
+            var t = document.createTextNode("E-mail");
+            z.appendChild(t);
+            document.getElementById("row").appendChild(z);
+
+
+            for(i = 0;i < users.length; i++)
+            {
+                var y = document.createElement("TR");
+                y.setAttribute("id", "row" + i.toString());
+                document.getElementById("table").appendChild(y);
+
+                var z = document.createElement("TD");
+                var t = document.createTextNode(users[i].ID);
+                z.appendChild(t);
+                document.getElementById("row" + i.toString()).appendChild(z);
+
+                var z = document.createElement("TD");
+                var t = document.createTextNode(users[i].Name);
+                z.appendChild(t);
+                document.getElementById("row" + i.toString()).appendChild(z);
+
+                var a = document.createElement("A");
+                a.setAttribute("href", "mailto:" + users[i].email );
+                var z = document.createElement("TD");
+                var t = document.createTextNode(  users[i].email);
+                a.appendChild(t)
+                z.appendChild(a);
+                document.getElementById("row" + i.toString()).appendChild(z);
+            }
+        </script>
+    </body>
+</html>
+
+<style>
+    #table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #table td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #table tr:nth-child(even){background-color: #bcefff;}
+
+    #table tr:nth-child(even):hover {background-color: #2db6ff;}
+    #table tr:nth-child(odd):hover {background-color: #9a5efc;}
+
+    #table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: rgb(0, 130, 139);
+        color: white;
+    }
+</style>
